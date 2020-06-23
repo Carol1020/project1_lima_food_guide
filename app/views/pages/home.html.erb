@@ -1,2 +1,7 @@
-<h1>All Users</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Lima Food Guide</h1>
+
+<% if @current_user.present? %>
+  <marquee>
+    <h2>WELCOME BACK <%= @current_user.email %></h2>
+  </marquee>
+<% end %>

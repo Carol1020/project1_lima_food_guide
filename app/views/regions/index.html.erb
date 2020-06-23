@@ -1,0 +1,8 @@
+<h1>Lima Regions</h1>
+
+<% @regions.each do |region| %>
+  <p>
+    <%= link_to region.name, region_path(region.id) %>
+  </p>
+
+<% end %>

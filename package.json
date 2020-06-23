@@ -1,5 +1,7 @@
 {
   "name": "project1_lima_food",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
 }

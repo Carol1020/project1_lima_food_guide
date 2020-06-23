@@ -1,0 +1,24 @@
+<h1><%= @region.name %></h1>
+
+<ul>
+  <li><strong>Name:</strong> <%= @region.name %></li>
+  <li><strong>Background:</strong> <%= @region.background %></li>
+  <li><strong>Things to do:</strong> <%= @region.things_to_do %></li>
+  <li><strong>Restaurants:</strong>
+    <% @region.restaurants.each do |restaurant| %>
+      <%= link_to restaurant.name, restaurant %>
+    <% end %></li>
+</ul>
+
+<%= image_tag @region.image, :class => 'feature' if @region.image.present? %>
+
+<div class="control">
+  <% if @current_user.present? %>
+    <%= link_to 'Add to my wish list', regions_path %>
+  <% end %>
+
+  <% if @current_user.admin? %>
+    <%= link_to 'Edit region', edit_region_path(@region) %>
+    <%= link_to 'Delete region', @region, :method => 'delete' %>
+  <% end %>
+</div>

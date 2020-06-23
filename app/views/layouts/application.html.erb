@@ -5,16 +5,36 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Home', root_path %>
-      <%= link_to 'Sign Up', new_user_path %>
-      <%= link_to 'Log In', login_path %>
-    </nav>
-    <%= yield %>
+    <div class="col mx-auto">
+      <nav>
+        <%= link_to 'Home', root_path, class: "btn btn-primary" %>
+        <%= link_to 'Lima Regions', regions_path %>
+        <%= link_to 'Restraurants/Bars', restaurants_path %>
+        <%= link_to 'Must Try Foods/Drinks', foods_path %>
+        <% if @current_user.present? %>
+          <% if @current_user.admin? %>
+            <%= link_to 'All users', users_path %>
+            <%= link_to 'New Region', new_region_path %>
+            <%= link_to 'New Food', new_food_path %>
+            <%= link_to 'New Restraurant', new_restaurant_path %>
+          <% end %>
+          <%= link_to 'My Wish List' %>
+          <%= link_to "Log Out #{@current_user.email}", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to 'Sign Up', new_user_path %>
+          <%= link_to 'Sign In', login_path %>
+        <% end %>
+      </nav>
+      
+      <%= yield %>
+    </div>
+
   </body>
 </html>

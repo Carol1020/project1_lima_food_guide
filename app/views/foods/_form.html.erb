@@ -1,0 +1,18 @@
+<%= form_for @food do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true, :autofocus => true %>
+
+  <%= f.label :Description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :recommended_level, 'Recommended level (out of 5)' %>
+  <%= f.text_field :recommended_level %>
+
+  <%= f.label :recipe_link, 'Recipe link' %>
+  <%= f.text_field :recipe_link %>
+
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,27 @@
+<h1><%= @restaurant.name %></h1>
+
+<ul>
+  <li><strong>Name:</strong> <%= @restaurant.name %></li>
+  <li><strong>Price range:</strong> <%= @restaurant.price_range %></li>
+  <li><strong>Recommended level:</strong> <%= @restaurant.recommended_level %></li>
+  <li><strong>Description:</strong> <%= @restaurant.description %></li>
+  <li><strong>Signature dishes:</strong> <%= @restaurant.signature_dishes %></li>
+  <li><strong>Location:</strong> <%= @restaurant.location %></li>
+  <li><strong>Recommended dishes/drinks:</strong>
+    <% @restaurant.foods.each do |food| %>
+      <%= link_to food.name, food %>
+    <% end %></li>
+</ul>
+
+  <%= image_tag @restaurant.image, :class => 'feature' if @restaurant.image.present? %>
+
+  <div class="control">
+    <% if @current_user.present? %>
+      <%= link_to 'Add to my wish list', foods_path %>
+    <% end %>
+
+    <% if @current_user.admin? %>
+      <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+      <%= link_to 'Delete restaurant', @restaurant, :method => 'delete' %>
+    <% end %>
+  </div>

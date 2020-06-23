@@ -1,0 +1,15 @@
+<%= form_for @region do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true, :autofocus => true %>
+
+  <%= f.label :background %>
+  <%= f.text_field :background %>
+
+  <%= f.label :things_to_do, 'Things to do' %>
+  <%= f.text_field :things_to_do %>
+
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+
+  <%= f.submit %>
+<% end %>
