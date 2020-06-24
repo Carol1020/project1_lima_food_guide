@@ -17,7 +17,7 @@ class RegionsController < ApplicationController
   end
 
   def update
-    region =Region.find params[:id]
+    region = Region.find params[:id]
     region.update region_params
     redirect_to region
   end

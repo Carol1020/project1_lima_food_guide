@@ -4,13 +4,11 @@
   <li><strong>Price range:</strong> <%= @restaurant.price_range %></li>
   <li><strong>Recommended level:</strong> <%= @restaurant.recommended_level %>/5</li>
   <li><strong>Description:</strong> <%= @restaurant.description %></li>
-  <li><strong>Signature dishes:</strong> <%= @restaurant.signature_dishes %></li>
   <li><strong>Location:</strong> <%= @restaurant.location %></li>
-  <li><strong>Website:</strong> <%= link_to @restaurant.website_link, @restaurant.website_link %></li>
+  <li><strong>Website:</strong> <%= link_to @restaurant.website_link, @restaurant.website_link, :target => "_blank" %></li>
+
   <li><strong>Recommended foods/drinks:</strong>
-    <% @restaurant.foods.each do |food| %>
-      <%= link_to food.name, food %>
-    <% end %></li>
+    <%== @restaurant.foods.map {|food| link_to food.name, food }.join(", ") %></li>
 </ul>
 
   <%= image_tag @restaurant.image, :class => 'feature' if @restaurant.image.present? %>

@@ -4,11 +4,9 @@
   <li><strong>Name:</strong> <%= @food.name %></li>
   <li><strong>Recommended level:</strong> <%= @food.recommended_level %>/5</li>
   <li><strong>Description:</strong> <%= @food.description %></li>
-  <li><strong>How to make</strong> <%= link_to @food.name, @food.recipe_link %> <strong>at home?</strong></li>
+  <li><strong>How to make</strong> <%= link_to @food.name, @food.recipe_link, :target => "_blank" %> <strong>at home?</strong></li>
   <li><strong>Best <%= @food.name %> in Lima:</strong>
-    <% @food.restaurants.each do |restaurant| %>
-      <%= link_to restaurant.name, restaurant %>
-    <% end %></li>
+    <%== @food.restaurants.map {|restaurant| link_to restaurant.name, restaurant }.join(", ") %></li>
 </ul>
 
 <%= image_tag @food.image, :class => 'feature' if @food.image.present? %>

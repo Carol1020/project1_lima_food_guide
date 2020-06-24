@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_070915) do
     t.text "recommended_level"
     t.text "recipe_link"
     t.text "image"
-    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_070915) do
     t.text "background"
     t.text "things_to_do"
     t.text "image"
-    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,15 +57,9 @@ ActiveRecord::Schema.define(version: 2020_06_23_070915) do
     t.text "recommended_level"
     t.text "website_link"
     t.text "image"
-    t.text "food_id"
     t.text "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "restaurants_regions", id: false, force: :cascade do |t|
-    t.integer "restaurant_id"
-    t.integer "region_id"
   end
 
   create_table "users", force: :cascade do |t|

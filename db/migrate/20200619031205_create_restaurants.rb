@@ -9,7 +9,6 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.text :recommended_level
       t.text :website_link
       t.text :image
-      t.text :food_id
       t.text :region_id
 
       t.timestamps

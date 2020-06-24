@@ -6,7 +6,6 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.text :recommended_level
       t.text :recipe_link
       t.text :image
-      t.integer :restaurant_id
 
       t.timestamps
     end
