@@ -19,6 +19,5 @@ Rails.application.routes.draw do
   post '/favorites/restaurant/:restaurant_id' => 'favorites#add_restaurant', :as => "favorite_restaurant"
   delete '/favorites/restaurant/:restaurant_id' => 'favorites#remove_restaurant'
 
-  get '/map' => 'pages#map'
 
 end

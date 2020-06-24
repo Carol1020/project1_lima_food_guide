@@ -13,15 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
- img {
-   max-width: 80%;
-   height: auto;
- }

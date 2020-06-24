@@ -1,15 +1,22 @@
-<h1>Sign In</h1>
-<%= form_tag login_path do %>
-<div class="form-group">
-  <%= label_tag :email %>
-  <%= email_field_tag :email, nil, :class => "form-control" %>
+<div class="container-xl">
+  <h1 class="text-center">Log In</h1>
+  <%= form_tag login_path do %>
+  <div class="form-row">
+    <div class="col">
+      <div class="form-group col-xl">
+        <%= label_tag :email %>
+        <%= email_field_tag :email, nil, :class => "form-control", :placeholder => "email@example.com" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group col-xl">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, :class => "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <%= submit_tag "Sign in", :class => "btn btn-primary btn-md" %>
+  </div>
+  <% end %>
 </div>
-
-<div class="form-group">
-  <%= label_tag :password %>
-  <%= password_field_tag :password, nil, :class => "form-control" %>
-</div>
-
-
-  <%= submit_tag "Sign in", :class => "btn btn-primary btn-lg" %>
-<% end %>
