@@ -1,8 +1,7 @@
 <h1><%= @region.name %></h1>
 
 <ul>
-  <li><strong>Name:</strong> <%= @region.name %></li>
-  <li><strong>Background:</strong> <%= @region.background %></li>
+  <li><strong>Overview:</strong> <%= @region.background %></li>
   <li><strong>Things to do:</strong> <%= @region.things_to_do %></li>
   <li><strong>Restaurants:</strong>
     <% @region.restaurants.each do |restaurant| %>
@@ -14,11 +13,17 @@
 
 <div class="control">
   <% if @current_user.present? %>
-    <%= link_to 'Add to my wish list', regions_path %>
+    <% if @current_user.favorites.map(&:region_id).include?(@region.id) %>
+      <%= button_to 'Remove favorite', favorite_region_path(@region), :method => 'delete' %>
+    <% else %>
+      <%= button_to 'Add to favorite', favorite_region_path(@region) %>
+    <% end %>
+
+    <% if @current_user.admin? %>
+      <%= link_to 'Edit region', edit_region_path(@region) %>
+      <%= link_to 'Delete region', @region, :method => 'delete' %>
+    <% end %>
   <% end %>
 
-  <% if @current_user.admin? %>
-    <%= link_to 'Edit region', edit_region_path(@region) %>
-    <%= link_to 'Delete region', @region, :method => 'delete' %>
-  <% end %>
+
 </div>

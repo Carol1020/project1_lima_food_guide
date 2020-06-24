@@ -1,7 +1,6 @@
 <h2>Food List</h2>
 <% @foods.each do |food| %>
-  <p>
-    <%= link_to food.name, food_path(food.id) %>
-  </p>
+  <p><%= link_to food.name, food_path(food.id) %></p>
+  <p><%= image_tag food.image, :class => 'feature' if food.image.present? %></p>
 
 <% end %>

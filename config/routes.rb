@@ -4,21 +4,21 @@ Rails.application.routes.draw do
   resources :foods
   resources :regions
   resources :restaurants
-  resources :my_lists
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
 
-  # get '/restaurants' => 'restaurants#index'
-  # get 'restaurants/new' => 'restaurants#new', :as => 'new_restaurant'
-  # get '/restaurants/:id' => 'restaurants#show', :as => 'restaurant'
+  get '/favorites' => 'favorites#index'
+  post '/favorites/food/:food_id' => 'favorites#add_food', :as => "favorite_food"
+  delete '/favorites/food/:food_id' => 'favorites#remove_food'
 
-  # get '/foods' => 'foods#index'
-  # get '/foods/new' => 'foods#new', :as => 'new_food'
-  # get '/foods/:id' => 'foods#show', :as => 'food'
+  post '/favorites/region/:region_id' => 'favorites#add_region', :as => "favorite_region"
+  delete '/favorites/region/:region_id' => 'favorites#remove_region'
 
-  #get '/regions' => 'regions#index'
-  #get '/regions/:id' => 'regions#show', :as => 'region'
+  post '/favorites/restaurant/:restaurant_id' => 'favorites#add_restaurant', :as => "favorite_restaurant"
+  delete '/favorites/restaurant/:restaurant_id' => 'favorites#remove_restaurant'
+
+
 
 end

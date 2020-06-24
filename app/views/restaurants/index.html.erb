@@ -1,7 +1,5 @@
 <h2>Restaurant List</h2>
 <% @restaurants.each do |restaurant| %>
-  <p>
-    <%= link_to restaurant.name, restaurant_path(restaurant.id) %>
-  </p>
-
+  <p><%= link_to restaurant.name, restaurant_path(restaurant.id) %></p>
+  <p><%= image_tag restaurant.image, :class => 'feature' if restaurant.image.present? %></p>
 <% end %>

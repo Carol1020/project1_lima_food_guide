@@ -15,11 +15,15 @@
 
 <div class="control">
   <% if @current_user.present? %>
-    <%= link_to 'Add to my wish list', foods_path %>
-  <% end %>
+    <% if @current_user.favorites.map(&:food_id).include?(@food.id) %>
+      <%= button_to 'Remove favorite', favorite_food_path(@food), :method => 'delete' %>
+    <% else %>
+      <%= button_to 'Add to favorite', favorite_food_path(@food) %>
+    <% end %>
 
-  <% if @current_user.admin? %>
-    <%= link_to 'Edit food', edit_food_path(@food) %>
-    <%= link_to 'Delete food', @food, :method => 'delete' %>
+    <% if @current_user.admin? %>
+      <%= link_to 'Edit food', edit_food_path(@food) %>
+      <%= link_to 'Delete food', @food, :method => 'delete' %>
+    <% end %>
   <% end %>
 </div>

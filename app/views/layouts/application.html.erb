@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,26 +14,28 @@
   <body>
     <div class="col mx-auto">
       <nav>
-        <%= link_to 'Home', root_path, class: "btn btn-primary" %>
-        <%= link_to 'Lima Regions', regions_path %>
-        <%= link_to 'Restraurants/Bars', restaurants_path %>
-        <%= link_to 'Must Try Foods/Drinks', foods_path %>
+        <%= link_to 'Home', root_path, :class => "btn btn-info" %>
+        <%= link_to 'Lima Regions', regions_path, :class=> "btn btn-info" %>
+        <%= link_to 'Restraurants/Bars', restaurants_path, :class=> "btn btn-info" %>
+        <%= link_to 'Must Try Foods/Drinks', foods_path, :class=> "btn btn-info" %>
         <% if @current_user.present? %>
           <% if @current_user.admin? %>
-            <%= link_to 'All users', users_path %>
-            <%= link_to 'New Region', new_region_path %>
-            <%= link_to 'New Food', new_food_path %>
-            <%= link_to 'New Restraurant', new_restaurant_path %>
+            <%= link_to 'All users', users_path, :class=> "btn btn-light" %>
+            <%= link_to 'New Region', new_region_path, :class=> "btn btn-light" %>
+            <%= link_to 'New Food', new_food_path, :class=> "btn btn-light" %>
+            <%= link_to 'New Restraurant', new_restaurant_path, :class=> "btn btn-light" %>
           <% end %>
-          <%= link_to 'My Wish List' %>
-          <%= link_to "Log Out #{@current_user.email}", login_path, :method => 'delete' %>
+          <%= link_to 'My Favorites', favorites_path, :class=> "btn btn-danger" %>
+          <%= link_to "Log Out #{@current_user.email}", login_path, :method => 'delete', :class=> "btn btn-link" %>
         <% else %>
-          <%= link_to 'Sign Up', new_user_path %>
-          <%= link_to 'Sign In', login_path %>
+          <%= link_to 'Sign Up', new_user_path, :class=> "btn btn-link" %>
+          <%= link_to 'Log In', login_path, :class=> "btn btn-link" %>
         <% end %>
       </nav>
-      
+
       <%= yield %>
+
+
     </div>
 
   </body>

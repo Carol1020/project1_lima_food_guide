@@ -1,4 +1,4 @@
 class Region < ApplicationRecord
   has_many :restaurants
-  belongs_to :my_list, :optional => true
+  has_many :favorites
 end

@@ -1,13 +1,13 @@
 <h1><%= @restaurant.name %></h1>
 
 <ul>
-  <li><strong>Name:</strong> <%= @restaurant.name %></li>
   <li><strong>Price range:</strong> <%= @restaurant.price_range %></li>
-  <li><strong>Recommended level:</strong> <%= @restaurant.recommended_level %></li>
+  <li><strong>Recommended level:</strong> <%= @restaurant.recommended_level %>/5</li>
   <li><strong>Description:</strong> <%= @restaurant.description %></li>
   <li><strong>Signature dishes:</strong> <%= @restaurant.signature_dishes %></li>
   <li><strong>Location:</strong> <%= @restaurant.location %></li>
-  <li><strong>Recommended dishes/drinks:</strong>
+  <li><strong>Website:</strong> <%= link_to @restaurant.website_link, @restaurant.website_link %></li>
+  <li><strong>Recommended foods/drinks:</strong>
     <% @restaurant.foods.each do |food| %>
       <%= link_to food.name, food %>
     <% end %></li>
@@ -17,11 +17,16 @@
 
   <div class="control">
     <% if @current_user.present? %>
-      <%= link_to 'Add to my wish list', foods_path %>
+      <% if @current_user.favorites.map(&:restaurant_id).include?(@restaurant.id) %>
+        <%= button_to 'Remove favorite', favorite_restaurant_path(@restaurant), :method => 'delete' %>
+      <% else %>
+        <%= button_to 'Add to favorite', favorite_restaurant_path(@restaurant) %>
+      <% end %>
+      <% if @current_user.admin? %>
+        <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+        <%= link_to 'Delete restaurant', @restaurant, :method => 'delete' %>
+      <% end %>
     <% end %>
 
-    <% if @current_user.admin? %>
-      <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
-      <%= link_to 'Delete restaurant', @restaurant, :method => 'delete' %>
-    <% end %>
+
   </div>
