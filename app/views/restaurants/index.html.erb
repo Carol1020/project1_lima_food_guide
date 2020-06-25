@@ -1,14 +1,12 @@
-<div class="container-xl">
-  <h1 class="text-center">Restaurants and Bars</h1>
-  <p class="text-justify">Lima has rightly become an international food destination in recent years. Drawing attention for an influx of new chefs who are combining the incredible array of Peruvian ingredients with the country’s culinary history, Lima’s restaurants are now recognized as some of the best in South America. Here are the top spots to dine out on Peruvian fare in the capital city.</p>
-  <div class="card-columns">
-    <% @restaurants.each do |restaurant| %>
-    <div class="card text-center">
-      <%= link_to (image_tag restaurant.image, :class => 'feature card-img-top'), restaurant_path(restaurant.id) if restaurant.image.present? %>
-      <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
-      <p class="card-text">Signature Dishes: <%= restaurant.signature_dishes %></p>
-      <p class="card-text">Recommended level: <%= restaurant.recommended_level %>/5</p>
-    </div>
-    <% end %>
+<h1 class="text-center">Restaurants and Bars</h1>
+<p class="text-justify">Lima has rightly become an international food destination in recent years. Drawing attention for an influx of new chefs who are combining the incredible array of Peruvian ingredients with the country’s culinary history, Lima’s restaurants are now recognized as some of the best in South America. Here are the top spots to dine out on Peruvian fare in the capital city.</p>
+<div class="card-columns">
+  <% @restaurants.each do |restaurant| %>
+  <div class="card text-center">
+    <%= link_to (image_tag restaurant.image, :class => 'feature card-img-top'), restaurant_path(restaurant.id) if restaurant.image.present? %>
+    <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
+    <p class="card-text">Signature Dishes: <%= restaurant.signature_dishes %></p>
+    <p class="card-text">Recommended level: <%= restaurant.recommended_level %>/5</p>
   </div>
+  <% end %>
 </div>

@@ -1,29 +1,26 @@
-<div class="container-xl">
-  <h1><%= @region.name %></h1>
-  <div class="row justify-content-xl-center">
+<h2><%= @region.name %></h2>
+<div class="row justify-content-xl-center">
+  <div class="col-md-5">
+    <p><strong>Overview: </strong> <%= @region.background %></p>
+    <p><strong>Things to do: </strong> <%= @region.things_to_do %></p>
+    <p><strong>Restaurants: </strong><%== @region.restaurants.map {|restaurant| link_to restaurant.name, restaurant }.join(", ") %></p>
 
-    <div class="col-md-5">
-      <p><strong>Overview: </strong> <%= @region.background %></p>
-      <p><strong>Things to do: </strong> <%= @region.things_to_do %></p>
-      <p><strong>Restaurants: </strong><%== @region.restaurants.map {|restaurant| link_to restaurant.name, restaurant }.join(", ") %></p>
-
-      <div class="control-md-auto">
-        <% if @current_user.present? %>
-          <% if @current_user.favorites.map(&:region_id).include?(@region.id) %>
-            <%= button_to 'Remove favorite', favorite_region_path(@region), :method => 'delete' %>
-          <% else %>
-            <%= button_to 'Add to favorite', favorite_region_path(@region), :class => 'btn btn-success' %>
-          <% end %>
-          <% if @current_user.admin? %>
-            <%= link_to 'Edit region', edit_region_path(@region) %>
-            <%= link_to 'Delete region', @region, :method => 'delete' %>
-          <% end %>
+    <div class="control-md-auto">
+      <% if @current_user.present? %>
+        <% if @current_user.favorites.map(&:region_id).include?(@region.id) %>
+          <%= button_to 'Remove favorite', favorite_region_path(@region), :class => 'btn btn-danger', :method => 'delete' %>
+        <% else %>
+          <%= button_to 'Add to favorite', favorite_region_path(@region), :class => 'btn btn-success' %>
         <% end %>
-      </div>
+        <% if @current_user.admin? %>
+          <%= link_to 'Edit region', edit_region_path(@region) %>
+          <%= link_to 'Delete region', @region, :method => 'delete' %>
+        <% end %>
+      <% end %>
     </div>
+  </div>
 
-    <div class="col-md-7">
-      <%= image_tag @region.image, :class => "feature d-xl-block w-100" if @region.image.present? %>
-    </div>
+  <div class="col-md-7">
+    <%= image_tag @region.image, :class => "feature d-xl-block w-100" if @region.image.present? %>
   </div>
 </div>

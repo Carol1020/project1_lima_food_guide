@@ -1,21 +1,30 @@
-<h2>My Favorites</h2>
+<div class="container-xl">
+  <h2 class="text-center">My Favorites</h2>
+  <div class="card-columns">
+    <% @current_user.favorites.each do |favorite| %>
+      <% if favorite.food.present? %>
+        <div class="card text-center">
+          <%= link_to (image_tag favorite.food.image, :class => 'feature card-img-top'), favorite.food %>
+          <h5 class="card-title"><%= link_to favorite.food.name, favorite.food %></h5>
+          <p class="card-text">Food/drink</p>
+        </div>
+      <% end %>
 
-<% @current_user.favorites.each do |favorite| %>
-    <% if favorite.food.present? %>
-      <p> Favortie Food:
-      <%= link_to favorite.food.name, favorite.food %>
-      </p>
+      <% if favorite.region.present? %>
+        <div class="card text-center">
+          <%= link_to (image_tag favorite.region.image, :class => 'feature card-img-top'), favorite.region %>
+          <h5 class="card-title"><%= link_to favorite.region.name, favorite.region %></h5>
+          <p class="card-text">Region</p>
+        </div>
+      <% end %>
+
+      <% if favorite.restaurant.present? %>
+        <div class="card text-center">
+          <%= link_to (image_tag favorite.restaurant.image, :class => 'feature card-img-top'), favorite.restaurant %>
+          <h5 class="card-title"><%= link_to favorite.restaurant.name, favorite.restaurant %></h5>
+          <p class="card-text">Restaurant/Bar</p>
+        </div>
+      <% end %>
     <% end %>
-
-  <% if favorite.region.present? %>
-    <p> Favortie Region:
-      <%= link_to favorite.region.name, favorite.region %>
-    </p>
-  <% end %>
-
-  <% if favorite.restaurant.present? %>
-    <p> Favortie Restaurant:
-      <%= link_to favorite.restaurant.name, favorite.restaurant %>
-    </p>
-  <% end %>
-<% end %>
+  </div>
+</div>

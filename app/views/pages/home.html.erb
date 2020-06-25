@@ -1,8 +1,11 @@
-<h1>Welcome to Lima Food Guide</h1>
+<h1 class="text-center">Lima Food Guide</h1>
+<div class="text-center">
+  <img src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/ca_0518NID_Women_Peru_online.jpg?itok=bfgnN1RC" class="img-xl" style="width: 100%" alt="homepage">
+</div>
+
 
 <% if @current_user.present? %>
   <marquee>
-    <h2>WELCOME BACK <%= @current_user.email %></h2>
-    <p>Peru is one of the most biologically and climatically diverse countries in the world, something that’s reflected in its culinary scene. The country has long been acknowledged as the gastronomic capital of South America, and Lima is where this fantastic cuisine comes together.</p>
+    <h5>WELCOME BACK <%= @current_user.email %></h5>
   </marquee>
 <% end %>

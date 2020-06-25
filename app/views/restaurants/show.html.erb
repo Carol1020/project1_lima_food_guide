@@ -1,14 +1,12 @@
-<h1><%= @restaurant.name %></h1>
+<h2><%= @restaurant.name %></h2>
 
 <p><%= image_tag @restaurant.image, :class => 'feature img-xl ', :style => "width: 100%" if @restaurant.image.present? %></p>
-
-<p><strong>Price range:</strong> <%= @restaurant.price_range %></p>
-<p><strong>Recommended level:</strong> <%= @restaurant.recommended_level %>/5</p>
-<p><strong>Description:</strong> <%= @restaurant.description %></p>
-<p><strong>Location:</strong> <%= @restaurant.location %></p>
-<p><strong>Website:</strong> <%= link_to @restaurant.website_link, @restaurant.website_link, :target => "_blank" %></p>
-<p><strong>Recommended foods/drinks:</strong><%== @restaurant.foods.map {|food| link_to food.name, food }.join(", ") %></p>
-
+<p class="text-justify"><strong>Description: </strong> <%= @restaurant.description %></p>
+<p class="text-justify"><strong>Price range: </strong> <%= @restaurant.price_range %></p>
+<p class="text-justify"><strong>Recommended level:</strong> <%= @restaurant.recommended_level %>/5</p>
+<p class="text-justify"><strong>Location: </strong> <%= @restaurant.location %></p>
+<p class="text-justify"><strong>Website: </strong> <%= link_to @restaurant.website_link, @restaurant.website_link, :target => "_blank" %></p>
+<p class="text-justify"><strong>Recommended foods/drinks: </strong><%== @restaurant.foods.map {|food| link_to food.name, food }.join(", ") %></p>
 
 <div class="control">
   <% if @current_user.present? %>

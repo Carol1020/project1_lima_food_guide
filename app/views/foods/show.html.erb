@@ -1,32 +1,31 @@
-<div class="container-xl">
-  <h1><%= @food.name %></h1>
-  <div class="row justify-content-xl-center">
 
-    <div class="col-md-5">
-      <p><strong>Description:</strong> <%= @food.description %></p>
-      <p><strong>Recommended level:</strong> <%= @food.recommended_level %>/5</p>
-      <p><strong>How to make</strong> <%= link_to @food.name, @food.recipe_link, :target => "_blank" %> <strong>at home?</strong></p>
-      <p><strong>Best <%= @food.name %> in Lima:</strong><%== @food.restaurants.map {|restaurant| link_to restaurant.name, restaurant }.join(", ") %></p>
+<h1><%= @food.name %></h1>
+<div class="row justify-content-xl-center">
 
-      <div class="control-md-auto">
-        <% if @current_user.present? %>
-          <% if @current_user.favorites.map(&:food_id).include?(@food.id) %>
-            <%= button_to 'Remove favorite', favorite_food_path(@food), :method => 'delete' %>
-          <% else %>
-            <%= button_to 'Add to favorite', favorite_food_path(@food), :class => 'btn btn-success' %>
-          <% end %>
+  <div class="col-md-5">
+    <p><strong>Description:</strong> <%= @food.description %></p>
+    <p><strong>Recommended level:</strong> <%= @food.recommended_level %>/5</p>
+    <p><strong>How to make</strong> <%= link_to @food.name, @food.recipe_link, :target => "_blank" %> <strong>at home?</strong></p>
+    <p><strong>Best <%= @food.name %> in Lima:</strong><%== @food.restaurants.map {|restaurant| link_to restaurant.name, restaurant }.join(", ") %></p>
 
-          <% if @current_user.admin? %>
-            <%= link_to 'Edit food', edit_food_path(@food) %>
-            <%= link_to 'Delete food', @food, :method => 'delete' %>
-          <% end %>
+    <div class="control-md-auto">
+      <% if @current_user.present? %>
+        <% if @current_user.favorites.map(&:food_id).include?(@food.id) %>
+          <%= button_to 'Remove favorite', favorite_food_path(@food), :class => 'btn btn-danger', :method => 'delete' %>
+        <% else %>
+          <%= button_to 'Add to favorite', favorite_food_path(@food), :class => 'btn btn-success' %>
         <% end %>
-      </div>
-    </div>
 
-    <div class="col-md-7">
-      <%= image_tag @food.image, :class => "feature d-xl-block w-100" if @food.image.present? %>
+        <% if @current_user.admin? %>
+          <%= link_to 'Edit food', edit_food_path(@food) %>
+          <%= link_to 'Delete food', @food, :method => 'delete' %>
+        <% end %>
+      <% end %>
     </div>
-
   </div>
+
+  <div class="col-md-7">
+    <%= image_tag @food.image, :class => "feature d-xl-block w-100" if @food.image.present? %>
+  </div>
+
 </div>
