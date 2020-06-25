@@ -2,7 +2,7 @@
 This project is inspired by Carol's eating experience when she travelled in Lima, Peru. The purpose of this project is to provide travellers like her with a food guide in Lima. It also introduces six popular regions of Lima where travellers are able find the most famous/ worth trying restaurants/bars in South America.
 
 All information is selected based on Carol's personal experience.
-------------------------------------------------
+
 
 # Project overview
 This section includes general technical information about this project(development tools & required gems).
@@ -20,7 +20,7 @@ This section includes general technical information about this project(developme
 * bootstrap
 * bcrypt
 * pry-rails
-------------------------------------------------
+
 
 # Project structure (models)
 This project consists of 5 models:
@@ -49,7 +49,7 @@ This project consists of 5 models:
 * Region - Restaurant (one to many)
   * :region has_many :restaurants
   * :restaurant belongs_to :region
-------------------------------------------------
+
 
 # User Functions
 Three types of users:
@@ -80,7 +80,7 @@ Different buttons/links are displayed on the page depending on user status. This
 CRUD system is mainly implemented to achieve following functions:
 1. Allow all users with an efficient account to add information to "Favorites".
 2. Allow admin to make changes to the webpage.
-------------------------------------------------
+
 
 # Bootstrap
 1. [Page layout](https://getbootstrap.com/docs/4.5/layout/overview/) with class of "container-xl"
@@ -104,7 +104,7 @@ CRUD system is mainly implemented to achieve following functions:
   * users new (sign up)
   * sessions new (log in)
   * all forms under each model
-------------------------------------------------
+
 
 # Command highlights (self revision only)
 * Foods show
@@ -142,5 +142,4 @@ CRUD system is mainly implemented to achieve following functions:
   ```
 * FavoritesController
   1. `redirect_back :fallback_location => root_path`
-  ------------------------------------------------
   
