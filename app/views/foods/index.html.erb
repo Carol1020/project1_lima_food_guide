@@ -5,7 +5,7 @@
   <div class="card-columns">
     <% @foods.each do |food| %>
     <div class="card text-center">
-      <%= image_tag food.image, :class => 'feature card-img-top' if food.image.present? %>
+      <%= link_to (image_tag food.image, :class => 'feature card-img-top'), food_path(food.id) if food.image.present? %>
       <h5 class="card-title"><%= link_to food.name, food_path(food.id) %></h5>
       <p class="card-text">Recommended level: <%= food.recommended_level %>/5</p>
       </div>

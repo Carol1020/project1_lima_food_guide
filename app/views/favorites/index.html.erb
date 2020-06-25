@@ -2,19 +2,19 @@
 
 <% @current_user.favorites.each do |favorite| %>
     <% if favorite.food.present? %>
-      <p> Favortie Foods:
+      <p> Favortie Food:
       <%= link_to favorite.food.name, favorite.food %>
       </p>
     <% end %>
 
   <% if favorite.region.present? %>
-    <p> Favortie Regions:
+    <p> Favortie Region:
       <%= link_to favorite.region.name, favorite.region %>
     </p>
   <% end %>
 
   <% if favorite.restaurant.present? %>
-    <p> Favortie Restaurants:
+    <p> Favortie Restaurant:
       <%= link_to favorite.restaurant.name, favorite.restaurant %>
     </p>
   <% end %>

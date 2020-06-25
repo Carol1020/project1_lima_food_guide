@@ -4,7 +4,7 @@
   <div class="card-columns">
     <% @restaurants.each do |restaurant| %>
     <div class="card text-center">
-      <%= image_tag restaurant.image, :class => 'feature card-img-top' if restaurant.image.present? %>
+      <%= link_to (image_tag restaurant.image, :class => 'feature card-img-top'), restaurant_path(restaurant.id) if restaurant.image.present? %>
       <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
       <p class="card-text">Signature Dishes: <%= restaurant.signature_dishes %></p>
       <p class="card-text">Recommended level: <%= restaurant.recommended_level %>/5</p>

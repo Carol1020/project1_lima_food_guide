@@ -1,4 +1,10 @@
 class FavoritesController < ApplicationController
+  # validates :food_id, uniqueness: { scope: :user_id }, unless: Proc.new { |b| b.food_id.blank? }
+
+  # validates :region_id, uniqueness: { scope: :user_id }, unless: Proc.new { |b| b.region_id.blank? }
+
+  # validates :restaurant_id, uniqueness: { scope: :user_id }, unless: Proc.new { |b| b.restaurant_id.blank? }
+
   def add_food
     @current_user.favorites.create :food_id => params[:food_id]
     redirect_to favorites_path
@@ -30,5 +36,4 @@ class FavoritesController < ApplicationController
     @current_user.favorites.find_by(:restaurant_id => params[:restaurant_id]).destroy
     redirect_to favorites_path
   end
-
 end

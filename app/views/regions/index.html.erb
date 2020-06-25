@@ -1,29 +1,33 @@
 <div class="container-xl">
   <h1 class="text-center">Lima Regions</h1>
   <p class="text-justify">Lima Region (Departamento de Lima) is an area surrounding Peru's capital. Stretching from Pacific Ocean beaches in the west to Andean highlands in the east, the region is known for wilderness preserves such as the Reserva Paisajistica Nor Yauyos-Cochas, which is distinguished by huge sandstone canyons and turquoise lakes. The region is also known for its locally produced wines and piscos (Peruvian brandy).</p>
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+    </ol>
     <div class="carousel-inner">
-    <% @regions.each do |region| %>
-      <div class="carousel-item active">
-        <%= image_tag region.image, :class => "d-block w-100" if region.image.present? %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5><%= link_to region.name, region_path(region.id) %></h5>
+      <% @regions.each_with_index do |region, index| %>
+        <div class="carousel-item <%= "active" if index==0 %>">
+          <%= link_to (image_tag region.image, :class => "d-block w-100"), region_path(region.id) if region.image.present? %>
+          <div class="carousel-caption d-none d-md-block">
+            <h2><%= region.name %></h2>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
