@@ -5,7 +5,7 @@
   <div class="col-md-5">
     <p><strong>Description:</strong> <%= @food.description %></p>
     <p><strong>Recommended level:</strong> <%= @food.recommended_level %>/5</p>
-    <p><strong>How to make</strong> <%= link_to @food.name, @food.recipe_link, :target => "_blank" %> <strong>at home?</strong></p>
+    <p><strong>How to make</strong> <%= link_to @food.name, @food.recipe_link, :target => '_blank' %> <strong>at home?</strong></p>
     <p><strong>Best <%= @food.name %> in Lima:</strong><%== @food.restaurants.map {|restaurant| link_to restaurant.name, restaurant }.join(", ") %></p>
 
     <div class="control-md-auto">
@@ -25,7 +25,7 @@
   </div>
 
   <div class="col-md-7">
-    <%= image_tag @food.image, :class => "feature d-xl-block w-100" if @food.image.present? %>
+    <%= image_tag @food.image, :class => 'feature d-xl-block w-100' if @food.image.present? %>
   </div>
 
 </div>
