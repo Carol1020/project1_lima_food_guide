@@ -76,10 +76,12 @@ Different buttons/links are displayed on the page depending on user status. This
 * Access to all users' details.
 * Allowed to add information to all models; as well as edit/delete existing page information.
 
-# Full CRUD system
+# CRUD system
 CRUD system is mainly implemented to achieve following functions:
-1. Allow all users with an efficient account to add information to "Favorites".
-2. Allow admin to make changes to the webpage.
+1. User sign up (create, read)
+2. User sign in (create, red and delete)
+3. Allow admin to make changes to the webpage (full CRUD).
+4. Allow all users with an efficient account to add information to "Favorites" - (create, read and delete)
 
 
 # Bootstrap
@@ -142,4 +144,3 @@ CRUD system is mainly implemented to achieve following functions:
   ```
 * FavoritesController
   1. `redirect_back :fallback_location => root_path`
-  
