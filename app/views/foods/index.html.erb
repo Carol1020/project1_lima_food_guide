@@ -1,10 +1,10 @@
-<h1 class=text-center>Must Try Foods and Drinks</h1>
+<h1 class="text-center">Must Try Foods and Drinks</h1>
 <p class="text-justify">Peruvian cuisine reflects local practices and ingredients including influences mainly from the indigenous population, including the Inca, and cuisines brought by immigrants from Europe (Spanish cuisine, Italian cuisine, German cuisine); Asia (Japanese cuisine and Chinese cuisine); and Africa. Without the familiar ingredients from their home countries, immigrants modified their traditional cuisines by using ingredients available in Peru.</p>
 <p class="text-justify">The four traditional staples of Peruvian cuisine are corn, potatoes and other tubers, and Amaranthaceaes (quinoa, kañiwa and kiwicha) and legumes (beans and lupins). Staples brought by the Spanish include rice, wheat and meats (beef, pork and chicken).</p>
 <div class="card-columns">
   <% @foods.each do |food| %>
   <div class="card text-center">
-    <%= link_to (image_tag food.image, :class => 'feature card-img-top'), food_path(food.id) if food.image.present? %>
+    <%= link_to (image_tag food.image, :class => "feature card-img-top"), food_path(food.id) if food.image.present? %>
     <h5 class="card-title"><%= link_to food.name, food_path(food.id) %></h5>
     <p class="card-text">Recommended level: <%= food.recommended_level %>/5</p>
     </div>

@@ -4,7 +4,7 @@
     <% @current_user.favorites.each do |favorite| %>
       <% if favorite.food.present? %>
         <div class="card text-center">
-          <%= link_to (image_tag favorite.food.image, :class => 'feature card-img-top'), favorite.food %>
+          <%= link_to (image_tag favorite.food.image, :class => "feature card-img-top"), favorite.food %>
           <h5 class="card-title"><%= link_to favorite.food.name, favorite.food %></h5>
           <p class="card-text">Food/drink</p>
         </div>
@@ -12,7 +12,7 @@
 
       <% if favorite.region.present? %>
         <div class="card text-center">
-          <%= link_to (image_tag favorite.region.image, :class => 'feature card-img-top'), favorite.region %>
+          <%= link_to (image_tag favorite.region.image, :class => "feature card-img-top"), favorite.region %>
           <h5 class="card-title"><%= link_to favorite.region.name, favorite.region %></h5>
           <p class="card-text">Region</p>
         </div>
@@ -20,7 +20,7 @@
 
       <% if favorite.restaurant.present? %>
         <div class="card text-center">
-          <%= link_to (image_tag favorite.restaurant.image, :class => 'feature card-img-top'), favorite.restaurant %>
+          <%= link_to (image_tag favorite.restaurant.image, :class => "feature card-img-top"), favorite.restaurant %>
           <h5 class="card-title"><%= link_to favorite.restaurant.name, favorite.restaurant %></h5>
           <p class="card-text">Restaurant/Bar</p>
         </div>

@@ -20,7 +20,7 @@ This section includes general technical information about this project(developme
 * bootstrap
 * bcrypt
 * pry-rails
-* jquery
+* jquery-rails
 
 
 # Project structure (models)
