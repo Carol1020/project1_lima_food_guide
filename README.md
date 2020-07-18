@@ -1,3 +1,4 @@
+Application link: https://limafood.herokuapp.com/
 # Project background
 This project is inspired by Carol's eating experience when she travelled in Lima, Peru. The purpose of this project is to provide travellers like her with a food guide in Lima. It also introduces six popular regions of Lima where travellers are able find the most famous/ worth trying restaurants/bars in South America.
 
